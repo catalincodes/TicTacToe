@@ -3,7 +3,7 @@
 Player::Player()
 : _name("No Name"), _marker(' ')
 {
-
+	
 }
 
 Player::Player(string name, char marker)

@@ -8,8 +8,9 @@ class Game
 public:
 	Game();
 private:
-	Board board();
-	int numPlayers;
-	Player listPlayers[MAX_PLAYERS];
-	/* data */
+	Board _board;
+	int _numPlayers;
+	Player _listPlayers[MAX_PLAYERS];
+	int getNumPlayers();
+	// create a getNames
 };
