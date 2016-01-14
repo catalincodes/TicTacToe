@@ -1,3 +1,10 @@
+/********************************************
+* Author:        	Catalin Popescu 		*
+* Filename:      	Board.h					*
+* Date modified: 	14-01-2016				*
+* Description:		Header file for Board  	*
+*					class          			*
+*********************************************/
 #pragma once
 
 const int MAX_SIZE = 15;

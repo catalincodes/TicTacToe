@@ -1,3 +1,11 @@
+/********************************************
+* Author:        	Catalin Popescu 		*
+* Filename:      	main.cpp				*
+* Date modified: 	14-01-2016				*
+* Description:		Main file that launches	*
+*					the whole game 			*
+*********************************************/
+
 #include <iostream>
 #include <cstdlib>
 

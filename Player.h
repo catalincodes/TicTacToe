@@ -1,6 +1,14 @@
+/********************************************
+* Author:        	Catalin Popescu 		*
+* Filename:      	Player.h				*
+* Date modified: 	14-01-2016				*
+* Description:		Header file for Player 	*
+*					class          			*
+*********************************************/
 #pragma once
 #include <iostream>
 using namespace std;
+
 
 class Player
 {

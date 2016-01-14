@@ -1,3 +1,11 @@
+/********************************************
+* Author:        	Catalin Popescu 		*
+* Filename:      	Game.h 					*
+* Date modified: 	14-01-2016				*
+* Description:		Header file for Game  	*
+*					class          			*
+*********************************************/
+
 #pragma once
 #include "Board.h"
 #include "Player.h"
@@ -11,7 +19,7 @@ private:
 	Board _board;
 	int _numPlayers;
 	Player _listPlayers[MAX_PLAYERS];
-	int setNumPlayers();
+	void setNumPlayers();
 	void setPlayerNames();
 	// create a getNames
 };

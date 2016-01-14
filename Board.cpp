@@ -1,3 +1,11 @@
+/********************************************
+* Author:        	Catalin Popescu 		*
+* Filename:      	Board.cpp				*
+* Date modified: 	14-01-2016				*
+* Description:		Implementation file for *
+*					Board class    			*
+*********************************************/
+
 #include "Board.h"
 
 Board::Board()

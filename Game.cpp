@@ -1,3 +1,11 @@
+/********************************************
+* Author:        	Catalin Popescu 		*
+* Filename:      	Game.cpp				*
+* Date modified: 	14-01-2016				*
+* Description:		Implementation file for *
+*					Game class    			*
+*********************************************/
+
 #include "Game.h"
 #include <cstdio>
 #include <iostream>
@@ -7,11 +15,11 @@ using namespace std;
 Game::Game()
 {
 	printf("Initializing game...\n");
-	_numPlayers = getNumPlayers();
+	setNumPlayers();
 	setPlayerNames();
 }
 
-int Game::setNumPlayers()
+void Game::setNumPlayers()
 {
 	int numPlayers = 0;
 	while ((numPlayers < 2) || (numPlayers > 5))
@@ -22,15 +30,14 @@ int Game::setNumPlayers()
 			printf("Game can only work with 2-5 players. Please try again.\n");
 		}
 	}
-	return numPlayers;
+	_numPlayers = numPlayers;
 }
 
 void Game::setPlayerNames()
 {
-	
 	printf("Time to enter the names of the players.\n");
 	for(int currentPlayerID = 0;
-		currentPlayerID < numPlayers;
+		currentPlayerID < _numPlayers;
 		++currentPlayerID) {
 		
 		printf("Please enter your name, Player %d : ", currentPlayerID+1);
@@ -45,6 +52,4 @@ void Game::setPlayerNames()
 		_listPlayers[currentPlayerID].setMarker(charBuffer);
 	}
 }
-
-//TODO: create a getNames function
 
