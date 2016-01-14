@@ -11,6 +11,7 @@ private:
 	Board _board;
 	int _numPlayers;
 	Player _listPlayers[MAX_PLAYERS];
-	int getNumPlayers();
+	int setNumPlayers();
+	void setPlayerNames();
 	// create a getNames
 };
