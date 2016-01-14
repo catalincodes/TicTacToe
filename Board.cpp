@@ -12,7 +12,7 @@ Board::Board(int size)
 
 char Board::getEntry(int row, int col)
 {
-	if ( (row < size) && (col < size) ) {
+	if ( (row < _size) && (col < _size) ) {
 		return _board[row][col];
 	}
 	else {
@@ -22,7 +22,7 @@ char Board::getEntry(int row, int col)
 
 void Board::setEntry(int row, int col, char entry)
 {
-	if ( (row < size) && (col < size) ) {
+	if ( (row < _size) && (col < _size) ) {
 		_board[row][col] = entry;
 	}
 }
