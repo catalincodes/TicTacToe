@@ -1,0 +1,52 @@
+The game contains 
+- a nxn board, 
+- m players,
+- a game manager
+
+	- driver launches game manager
+	- already existing max num players 5
+	- already existing max size board 15
+
+
+
+Board:
+MAX_ROWS
+MAX_COLS
+private: 
+	char board[MAX_ROWS][MAX_COLS];
+	int numSize;
+public: 
+	board(int size);
+	getEntry()
+	setEntry()
+
+Player:
+private:
+	string _name
+	char _marker
+public:
+	Player()
+	getName()
+	setName()
+	getMarker()
+	setMarker()
+
+Game:
+include Board, Player
+MAX_PLAYERS;
+private:
+	Player[MAX_PLAYERS] listPlayers;
+	Board board;
+	int numPlayers;
+public:
+	Game();
+	runGame();
+
+
+
+
+
+
+
+
+
