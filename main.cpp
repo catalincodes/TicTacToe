@@ -1,4 +1,9 @@
 #include <iostream>
+#include <cstdlib>
+
+#include "Board.h"
+
+using namespace std;
 
 int main()
 {	

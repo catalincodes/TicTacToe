@@ -14,7 +14,7 @@ MAX_ROWS
 MAX_COLS
 private: 
 	char board[MAX_ROWS][MAX_COLS];
-	int numSize;
+	int size;
 public: 
 	board(int size);
 	getEntry()
