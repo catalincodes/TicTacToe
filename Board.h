@@ -6,6 +6,8 @@ class Board
 {
 public:
 	Board(int size);
+	char getEntry(int row, int col);
+	void setEntry(int row, int col, char entry);
 private:
 	char _board[MAX_ROWS][MAX_COLS];
 	int _size;
