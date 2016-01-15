@@ -1,7 +1,7 @@
 /********************************************
 * Author:        	Catalin Popescu 		*
 * Filename:      	Game.cpp				*
-* Date modified: 	14-01-2016				*
+* Date modified: 	15-01-2016				*
 * Description:		Implementation file for *
 *					Game class    			*
 *********************************************/
@@ -53,3 +53,30 @@ void Game::setPlayerNames()
 	}
 }
 
+int Game::playGame()
+{
+	int currentPlayerID;
+	bool isCompleted = false;
+	int winnerID = -1;
+
+	// clearScreen - TBDev
+	// draw board - TBDev
+	int xCoord = 0, yCoord = 0;
+	getNewCoord(xCoord, yCoord);
+	// placeEntry - X,Y
+	// check if won
+		// if true 
+			// isCompleted = true, winnerID = currentPlayerID
+		// else 
+			// check if still playable
+				// if false isCompleted = true, winnerID=4
+	return winnerID;
+}
+
+ void Game::getNewCoord(int &xCoord, int &yCoord) 
+ {
+ 		// NEW FUNCTION : void getNewCoord(&xCoord, &yCoord);
+			// getCoord(&xCoord, &yCoord);
+			// isFree(xCoord, yCoord)
+		// if true return
+ }

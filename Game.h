@@ -1,7 +1,7 @@
 /********************************************
 * Author:        	Catalin Popescu 		*
 * Filename:      	Game.h 					*
-* Date modified: 	14-01-2016				*
+* Date modified: 	15-01-2016				*
 * Description:		Header file for Game  	*
 *					class          			*
 *********************************************/
@@ -15,11 +15,12 @@ class Game
 {
 public:
 	Game();
+	int playGame();
 private:
 	Board _board;
 	int _numPlayers;
 	Player _listPlayers[MAX_PLAYERS];
 	void setNumPlayers();
 	void setPlayerNames();
-	// create a getNames
+	void getNewCoord(int &xCoord,int &yCoord); 
 };
