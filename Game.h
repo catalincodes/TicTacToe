@@ -19,8 +19,12 @@ public:
 private:
 	Board _board;
 	int _numPlayers;
+	int _winCondition; //number of consecutive entries required for winning
+	int _size;
 	Player _listPlayers[MAX_PLAYERS];
 	void setNumPlayers();
 	void setPlayerNames();
-	void getNewCoord(int &xCoord,int &yCoord); 
+	void getNewCoord(int &xCoord,int &yCoord);
+	void setWinCondition(); 
+	void setBoardSize();
 };

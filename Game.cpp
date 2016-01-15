@@ -53,6 +53,32 @@ void Game::setPlayerNames()
 	}
 }
 
+void Game::setBoardSize()
+{
+	printf("How big will the board be? : ");
+	int boardSize = 0;
+	while (boardSize < 3 && boardSize > 15) {
+		cin >> boardSize;
+		if (boardSize < 3 && boardSize > 15)  {
+			printf("Board size must be between 5 and 15\n");
+		}
+	}
+	_size = boardSize;
+}
+
+void Game::setWinCondition()
+{
+	printf("How many consecutive entries are needed to win? : ");
+	int winCondition = 0;
+	while (winCondition < 3 && winCondition > _size) {
+		cin >> winCondition;
+		if (winCondition < 3 && winCondition > _size)  {
+			printf("Must be at least three and you cannot have more than the size of the board\n");
+		}
+	}
+	_winCondition = winCondition;
+}
+
 int Game::playGame()
 {
 	int currentPlayerID;
