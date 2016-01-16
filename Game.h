@@ -17,14 +17,13 @@ public:
 	Game();
 	int playGame();
 private:
-	Board _board;
-	int _numPlayers;
+	Board _board;  //board on which the game is played
+	int _numPlayers; // numbers of players
 	int _winCondition; //number of consecutive entries required for winning
-	int _size;
-	Player _listPlayers[MAX_PLAYERS];
-	void setNumPlayers();
-	void setPlayerNames();
+	Player _listPlayers[MAX_PLAYERS]; //list of players (capacity = MAX_PLAYERS, size = _numPlayers)
+	void setNumPlayers(); //gets the number of players from the user and sets it (part of constructor)
+	void setPlayerNames(); //gets the player names and markers from the user and sets them
 	void getNewCoord(int &xCoord,int &yCoord);
-	void setWinCondition(); 
-	void setBoardSize();
+	void setWinCondition();  //gets the winning condition from the user
+	void setBoardSize(); //gets the board size from the user and sets it
 };

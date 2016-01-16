@@ -17,6 +17,8 @@ Game::Game()
 	printf("Initializing game...\n");
 	setNumPlayers();
 	setPlayerNames();
+	setBoardSize();
+	setWinCondition();
 }
 
 void Game::setNumPlayers()
@@ -56,23 +58,23 @@ void Game::setPlayerNames()
 void Game::setBoardSize()
 {
 	printf("How big will the board be? : ");
-	int boardSize = 0;
-	while (boardSize < 3 && boardSize > 15) {
-		cin >> boardSize;
-		if (boardSize < 3 && boardSize > 15)  {
+	int size = 0;
+	while (size < 3 && size > 15) {
+		cin >> size;
+		if (size < 3 && size > 15)  {
 			printf("Board size must be between 5 and 15\n");
 		}
-	}
-	_size = boardSize;
+	} 
+	_board.setSize(size);
 }
 
 void Game::setWinCondition()
 {
 	printf("How many consecutive entries are needed to win? : ");
 	int winCondition = 0;
-	while (winCondition < 3 && winCondition > _size) {
+	while (winCondition < 3 && winCondition > _board.getSize()) {
 		cin >> winCondition;
-		if (winCondition < 3 && winCondition > _size)  {
+		if (winCondition < 3 && winCondition > _board.getSize())  {
 			printf("Must be at least three and you cannot have more than the size of the board\n");
 		}
 	}
@@ -99,10 +101,23 @@ int Game::playGame()
 	return winnerID;
 }
 
+void Game::clearScreen()
+{
+	for (int screenLine = 0; screenLine < 25; ++screenLine)
+	{
+		printf("\n");
+	}
+}
+
  void Game::getNewCoord(int &xCoord, int &yCoord) 
  {
- 		// NEW FUNCTION : void getNewCoord(&xCoord, &yCoord);
-			// getCoord(&xCoord, &yCoord);
-			// isFree(xCoord, yCoord)
-		// if true return
+ 	bool isFree = false;
+ 	while (isFree == false) {
+ 		// print "Please enter the x coordinates : "
+ 		// input xCoord
+ 		// print "Please enter the y coordinates : "
+ 		// input yCoord
+ 	}
+ 		// isFree(xCoord, yCoord)
+			// if true return
  }
