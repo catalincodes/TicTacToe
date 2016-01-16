@@ -111,13 +111,21 @@ void Game::clearScreen()
 
  void Game::getNewCoord(int &xCoord, int &yCoord) 
  {
- 	bool isFree = false;
- 	while (isFree == false) {
- 		// print "Please enter the x coordinates : "
- 		// input xCoord
- 		// print "Please enter the y coordinates : "
- 		// input yCoord
- 	}
- 		// isFree(xCoord, yCoord)
-			// if true return
+ 	
+ 	do{
+ 		printf("Please enter the x coordinates : ");
+ 		cin >> xCoord;
+
+ 		printf("Please enter the x coordinates : ");
+ 		cin >> yCoord;
+ 	} while (isFree(xCoord, yCoord));
  }
+ 
+ bool Game::isFree(int x, int y)
+ {
+ 	if (_board.getEntry(x,y) == '_')
+ 		{return true;}
+ 	else
+ 		{return false;}
+ }
+ 

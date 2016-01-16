@@ -26,4 +26,6 @@ private:
 	void getNewCoord(int &xCoord,int &yCoord);
 	void setWinCondition();  //gets the winning condition from the user
 	void setBoardSize(); //gets the board size from the user and sets it
+	void clearScreen(); //clears the screen
+	bool isFree(int x, int y); //checks whether the given location is available
 };
