@@ -7,6 +7,7 @@
 *********************************************/
 
 #include "Board.h"
+#include <cstdio>
 
 Board::Board()
 {
@@ -43,3 +44,37 @@ int Board::getSize()
 {
 	return _size + 1;
 }
+
+void Board::drawBoard()
+{
+	//1st line
+	printf("__|"); 
+	for (int column = 0; column < _size; ++column) {
+		printf("_%d_|", column + 1 );
+	}
+	printf("\n"); //end of first line
+
+	for (int row = 0; row < _size; ++row) {
+		if (row < 9) {
+			printf(" %d|", row + 1 ); 
+		} else {
+			printf("%d|", row + 1 ); 
+		}
+
+		for (int column = 0; column < _size; ++column) {
+			printf("_%c_|", _board[row][column]);
+		}
+		printf("\n");	
+	}
+	
+}
+
+
+
+/*
+1st column
+
+_|___|___|___|
+_|___|___|___|
+
+*/

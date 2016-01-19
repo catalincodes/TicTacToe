@@ -10,24 +10,38 @@
 #include <cstdio>
 #include <iostream>
 #include <string>
+#include <sstream>
 using namespace std;
 
 Game::Game()
 {
+
 	printf("Initializing game...\n");
-	setNumPlayers();
-	setPlayerNames();
+	//setNumPlayers();
+	//setPlayerNames();
 	setBoardSize();
-	setWinCondition();
+	//setWinCondition();	
+	// for debugging purposes:
+	drawBoard();
 }
 
 void Game::setNumPlayers()
 {
 	int numPlayers = 0;
+	string inputBuffer = "";
 	while ((numPlayers < 2) || (numPlayers > 5))
 	{
-		printf("How many players ? ");
-		cin >> numPlayers;
+		
+		while(true)
+		{
+			printf("How many players ? ");
+			getline(cin, inputBuffer);
+			stringstream ss(inputBuffer);
+			if (ss >> numPlayers)
+				{break;}
+			printf("Invalid number!\n");
+		}
+		
 		if ((numPlayers < 2) || (numPlayers > 5)) {
 			printf("Game can only work with 2-5 players. Please try again.\n");
 		}
@@ -43,26 +57,50 @@ void Game::setPlayerNames()
 		++currentPlayerID) {
 		
 		printf("Please enter your name, Player %d : ", currentPlayerID+1);
-		string stringBuffer;
-		cin >> stringBuffer;
+		string inputBuffer = "";
+		
+		string playerName;
+		getline(cin, inputBuffer);
+		playerName = inputBuffer;
+		
+		char playerMarker;
+		while (true) {
+		   printf("Please enter your marker : ");
+		   getline(cin, inputBuffer);
 
-		printf("Please enter your marker : ");
-		char charBuffer;
-		cin >> charBuffer;
-
-		_listPlayers[currentPlayerID].setName(stringBuffer);
-		_listPlayers[currentPlayerID].setMarker(charBuffer);
+		   if (inputBuffer.length() == 1) {
+		   		playerMarker = inputBuffer[0];
+		    	break;
+		   } 
+		   printf("The marker has to be one character long.\n");
+		   
+		}
+		
+		//input complete. Assigning values
+		_listPlayers[currentPlayerID].setName(playerName);
+		_listPlayers[currentPlayerID].setMarker(playerMarker);
 	}
 }
 
 void Game::setBoardSize()
 {
-	printf("How big will the board be? : ");
+	string inputBuffer = "";
 	int size = 0;
-	while (size < 3 && size > 15) {
-		cin >> size;
-		if (size < 3 && size > 15)  {
-			printf("Board size must be between 5 and 15\n");
+
+	while (size < 3 || size > 15) {
+		while(true) {
+
+		printf("How big will the board be? : ");
+		getline(cin, inputBuffer);
+		stringstream ss(inputBuffer);
+
+		if (ss >> size)
+			{break;}
+		printf("Invalid number!\n");
+		}
+		
+		if (size < 3 || size > 15)  {
+			printf("Board size must be between 3 and 15\n");
 		}
 	} 
 	_board.setSize(size);
@@ -70,11 +108,26 @@ void Game::setBoardSize()
 
 void Game::setWinCondition()
 {
-	printf("How many consecutive entries are needed to win? : ");
 	int winCondition = 0;
-	while (winCondition < 3 && winCondition > _board.getSize()) {
-		cin >> winCondition;
-		if (winCondition < 3 && winCondition > _board.getSize())  {
+	string inputBuffer;
+	while (winCondition < 3 || winCondition > _board.getSize()) {
+
+		while (true) {
+
+			printf("How many consecutive entries are needed to win? : ");
+			
+			getline(cin, inputBuffer);
+			stringstream ss(inputBuffer);
+			
+			if (ss >> winCondition) {
+				break;
+			} 
+	
+			printf("Invalid entry\n");
+		
+		}
+
+		if (winCondition < 3 || winCondition > _board.getSize())  {
 			printf("Must be at least three and you cannot have more than the size of the board\n");
 		}
 	}
@@ -111,14 +164,36 @@ void Game::clearScreen()
 
  void Game::getNewCoord(int &xCoord, int &yCoord) 
  {
- 	
- 	do{
- 		printf("Please enter the x coordinates : ");
- 		cin >> xCoord;
+ 	bool isNotFree = true;
+ 	string inputBuffer = "";
+ 	while (isNotFree) {
+ 		
+ 		while(true) {
+			printf("Please enter the x coordinates : ");
+			getline(cin, inputBuffer);
+			stringstream ss(inputBuffer);
+			if (ss >> xCoord)
+				{break;}
+			printf("Invalid number!\n");
+		}
 
- 		printf("Please enter the x coordinates : ");
- 		cin >> yCoord;
- 	} while (isFree(xCoord, yCoord));
+		while(true) {
+			printf("Please enter the y coordinates : ");
+			getline(cin, inputBuffer);
+			stringstream ss(inputBuffer);
+			if (ss >> yCoord)
+				{break;}
+			printf("Invalid number!\n");
+		}
+
+		isNotFree = !(isFree(xCoord, yCoord));
+
+	if (!(isNotFree)) {
+		printf("The position you chose is occupied already.\n");
+	}
+ 		
+ 	}
+ 			
  }
  
  bool Game::isFree(int x, int y)
@@ -128,4 +203,8 @@ void Game::clearScreen()
  	else
  		{return false;}
  }
- 
+
+ void Game::drawBoard()
+ {
+ 	_board.drawBoard();
+ }

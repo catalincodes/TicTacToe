@@ -16,6 +16,7 @@ public:
 	void setEntry(int row, int col, char entry);
 	void setSize(int size);
 	int getSize();
+	void drawBoard();
 private:
 	char _board[MAX_SIZE][MAX_SIZE];
 	int _size;

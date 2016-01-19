@@ -28,4 +28,5 @@ private:
 	void setBoardSize(); //gets the board size from the user and sets it
 	void clearScreen(); //clears the screen
 	bool isFree(int x, int y); //checks whether the given location is available
+	void drawBoard(); //prints the board to the screen (uses the drawBoard() from the class Board)
 };

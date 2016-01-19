@@ -7,7 +7,7 @@
 *********************************************/
 
 #include <iostream>
-#include <cstdlib>
+//#include <cstdlib>
 
 #include "Game.h"
 
@@ -16,6 +16,7 @@ using namespace std;
 int main()
 {
 	Game testGame;
-	system("PAUSE");
+	//testGame.playGame();
+	//system("PAUSE");
 	return 0;
 }
